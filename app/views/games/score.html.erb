@@ -1,0 +1,13 @@
+<h1>Result</h1>
+
+<% if @ans == '1' %>
+<p>Sorry but <%= params[:word].upcase %> can't be built out of <%= params[:letters].gsub(" ", ", ") %></p>
+<% elsif @ans == '2' %>
+<p>Sorry but <%= params[:word].upcase %> does not seem to be an English word...</p>
+<% else %>
+<p><strong>Congratulations!</strong> <%= params[:word].upcase %> is a valid English word!</p>
+<% end %>
+
+<h3>Your score is <%= session[:score] %></h3>
+
+<%= link_to 'Play again', new_path %>
